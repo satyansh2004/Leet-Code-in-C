@@ -13,8 +13,8 @@ int lengthOfLongestSubstring(char *s)
             {
                 goto end;
             }
-            printf("\n%c(%d) != %c(%d)", s[i], i, s[j], j);
             subStrLen++;
+            printf("\n%c(%d) != %c(%d)", s[i], i, s[j], j);
         }
     }
 end:

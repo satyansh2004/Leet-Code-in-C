@@ -2,26 +2,38 @@
 
 int reverse(int x)
 {
-    char str[20];
+    long power = 1, temp = x, sum = 0, len = 0;
 
-    sprintf(str, "%d", x);
-
-    // for (int i = 0; i < 10; i++)
-    // {
-    //     printf("\n%c", str[i]);
-    // }
-    int i = 0;
-    int temp;
-    while (str[i] != '\0')
+    while (temp != 0)
     {
-        printf("%c", str[i]);
-        i++;
+        temp = temp / 10;
+        len++;
     }
+
+    while (x != 0)
+    {
+        for (int i = 0; i < len - 1; i++)
+        {
+            power = power * 10;
+        }
+
+        long num = (x % 10) * power;
+        sum = sum + num;
+        power = 1;
+        len--;
+        x = x / 10;
+    }
+
+    if (sum >= 2147483647 || sum <= -2147483648)
+    {
+        return 0;
+    }
+
+    return sum;
 }
 
-int main(void)
+int main()
 {
-    int x = 132;
-
-    reverse(x);
+    printf("%d", reverse(-2147483648));
+    return 0;
 }
